@@ -5,10 +5,6 @@
     <breadcrumb class="breadcrumb-container" />
 
     <div class="right-menu">
-      <template v-if="device!=='mobile'">
-        <error-log class="errLog-container right-menu-item hover-effect" />
-      </template>
-
       <el-dropdown class="avatar-container right-menu-item hover-effect" trigger="click">
         <div class="avatar-wrapper">
           <img :src="avatar+'?imageView2/1/w/80/h/80'" class="user-avatar">
@@ -38,20 +34,19 @@
 import { mapGetters } from 'vuex'
 import Breadcrumb from '@/components/Breadcrumb'
 import Hamburger from '@/components/Hamburger'
-import ErrorLog from '@/components/ErrorLog'
+// import ErrorLog from '@/components/ErrorLog'
 
 export default {
   components: {
     Breadcrumb,
-    Hamburger,
-    ErrorLog,
+    Hamburger
+    // ErrorLog
   },
   computed: {
     ...mapGetters([
       'sidebar',
       'name',
-      'avatar',
-      'device'
+      'avatar'
     ])
   },
   methods: {
@@ -59,7 +54,6 @@ export default {
       this.$store.dispatch('app/toggleSideBar')
     },
     async logout() {
-      await this.$store.dispatch('user/logout')
       this.$router.push(`/login?redirect=${this.$route.fullPath}`)
     }
   }

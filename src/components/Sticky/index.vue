@@ -38,6 +38,7 @@ export default {
     }
   },
   mounted() {
+    console.log(this.$el, this.$el.getBoundingClientRect())
     this.height = this.$el.getBoundingClientRect().height
     window.addEventListener('scroll', this.handleScroll)
     window.addEventListener('resize', this.handleReize)
@@ -75,6 +76,7 @@ export default {
       const width = this.$el.getBoundingClientRect().width
       this.width = width || 'auto'
       const offsetTop = this.$el.getBoundingClientRect().top
+      console.log(this.$el.getBoundingClientRect())
       if (offsetTop < this.stickyTop) {
         this.sticky()
         return
