@@ -6,7 +6,7 @@ const state = {
   name: '',
   avatar: 'https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif',
   introduction: '',
-  roles: [1, 2]
+  roles: []
 }
 
 const mutations = {
@@ -40,6 +40,7 @@ const actions = {
   getInfo({ commit, state }) {
     return new Promise((resolve, reject) => {
       commit('SET_ROLES', [1, 2])
+      resolve()
     })
   },
 

@@ -1,0 +1,45 @@
+.commonBox {
+  padding: 20px;
+  margin: 20px;
+  border-radius: 4px;
+  overflow: hidden;
+  background-color: #eaeaea;
+
+  .title {
+    position: relative;
+    font-size: 18px;
+    font-family: PingFangSC-Medium, PingFang SC;
+    font-weight: 600;
+    color: #323232;
+    line-height: 18px;
+    margin-bottom: 18px;
+  }
+
+  .desc {
+    font-size: 12px;
+    font-family: PingFangSC-Medium, PingFang SC;
+    font-weight: 500;
+    color: #323232;
+    line-height: 12px;
+    margin-bottom: 20px;
+  }
+}
+
+.df {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.fd-col {
+  flex-direction: column;
+}
+
+.al-fs {
+  align-items: flex-start;
+}
+
+.f1 {
+  flex: 1;
+}
+

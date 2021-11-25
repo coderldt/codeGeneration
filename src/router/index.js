@@ -8,6 +8,7 @@ import Layout from '@/layout'
 
 /* Router Modules */
 import componentsRouter from './modules/components'
+import templatesRouter from './modules/template'
 
 /**
 * hidden: true                   if `hidden:true` will not show in the sidebar(default is false)
@@ -85,10 +86,17 @@ export const constantRoutes = [
 export const asyncRoutes = [
   {
     path: '/codeGeneration',
-    component: () => import('@/views/codeGeneration/index'),
-    name: 'international',
-    meta: { title: 'icons', icon: 'icon', noCache: true }
+    component: Layout,
+    children: [
+      {
+        path: 'index',
+        component: () => import('@/views/codeGeneration/index'),
+        name: 'codeGeneration',
+        meta: { title: 'codeGeneration', icon: 'international', noCache: true }
+      }
+    ]
   },
+  templatesRouter,
   {
     path: '/icon',
     component: Layout,

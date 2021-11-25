@@ -75,7 +75,6 @@ export default {
       const width = this.$el.getBoundingClientRect().width
       this.width = width || 'auto'
       const offsetTop = this.$el.getBoundingClientRect().top
-      console.log(this.$el.getBoundingClientRect())
       if (offsetTop < this.stickyTop) {
         this.sticky()
         return

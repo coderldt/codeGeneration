@@ -9,6 +9,7 @@ export default {
     rolePermission: 'Role Permission',
     directivePermission: 'Directive Permission',
     icons: 'Icons',
+    codeGeneration: 'Code Generation',
     components: 'Components',
     componentIndex: 'Introduction',
     tinymce: 'Tinymce',

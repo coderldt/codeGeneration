@@ -15,7 +15,7 @@ router.beforeEach(async(to, from, next) => {
 
   // determine whether the user has logged in
   const hasToken = getToken()
-
+  
   if (hasToken) {
     if (to.path === '/login') {
       // if is logged in, redirect to the home page
@@ -23,15 +23,19 @@ router.beforeEach(async(to, from, next) => {
       NProgress.done()
     } else {
       const hasRoles = store.getters.roles && store.getters.roles.length > 0
-      if (!(store.getters.permission_routes && store.getters.permission_routes.length > 0)) {
-        const accessRoutes = await store.dispatch('permission/generateRoutes')
-        router.addRoutes(accessRoutes)
-      }
+
+      console.log(hasRoles, router);
+
+      // if (!(store.getters.permission_routes && store.getters.permission_routes.length > 0)) {
+      //   const accessRoutes = await store.dispatch('permission/generateRoutes')
+      //   console.log(accessRoutes);
+      //   router.addRoutes(accessRoutes)
+      // }
       if (hasRoles) {
         next()
       } else {
         try {
-          // const rules = await store.dispatch('user/getInfo')
+          const rules = await store.dispatch('user/getInfo')
           const accessRoutes = await store.dispatch('permission/generateRoutes')
           router.addRoutes(accessRoutes)
 
