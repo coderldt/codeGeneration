@@ -1,35 +1,44 @@
 <template>
   <div id="basicData" class="df fd-col">
-    <div id="" class="commonBox">
+    <div id="msg" class="commonBox" style="margin-top: 0;">
       <div class="title">搜索表格</div>
+      <el-row :gutter="20">
+        <el-col :span="12"><Options /></el-col>
+        <el-col :span="12"><div class="grid-content bg-purple" /></el-col>
+      </el-row>
     </div>
     <div id="result" class="commonBox">
       <div class="title">效果预览</div>
-      <div class="content f1 df fd-col">
-        <div class="border header">
-          <HeaderSkeleton></HeaderSkeleton>
+      <div class="content">
+        <div class="header">
+          <HeaderSkeleton />
         </div>
-        <div class="border table"></div>
-        <div class="border pagination"></div>
+        <div class="table">
+          <TableSkeleton />
+        </div>
+        <div class="pagination">
+          <PaginationSkeleton />
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import HeaderSkeleton from './skeleton/header.vue'
+import { HeaderSkeleton, TableSkeleton, PaginationSkeleton } from './skeleton'
+import Options from './children/options.vue'
 export default {
+  components: {
+    HeaderSkeleton,
+    TableSkeleton,
+    PaginationSkeleton,
+    Options
+  },
   data() {
     return {
-      result: {
-        header: {},
-        table: {},
-        pagination: {}
-      }
     }
   },
-  components: {
-    HeaderSkeleton
+  computed: {
   }
 }
 </script>
@@ -39,38 +48,19 @@ export default {
   margin: 20px;
   min-height: calc(100vh - 84px - 40px);
 
+  #msg {
+    // flex: 3;
+  }
+
+  #result {
+    flex: 10;
+  }
+
   .commonBox {
     margin-bottom: 0;
   }
   >div {
     width: 100%;
   }
-  // .content {
-  //   width: 100%;
-  // }
-
-  // .border {
-  //   width: 100%;
-  //   border: 1px solid red;
-  // }
-
-  // .header {
-  //   flex: 2;
-  //   margin-bottom: 10px;
-  // }
-
-  // .table {
-  //   flex: 10;
-  //   margin-bottom: 10px;
-  // }
-
-  // .pagination {
-  //   flex: 1;
-  // }
 }
-
-#result {
-  flex: 6;
-}
-
 </style>
