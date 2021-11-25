@@ -6,7 +6,6 @@
         <h3 class="title">
           {{ $t('login.title') }}
         </h3>
-        <lang-select class="set-language" />
       </div>
 
       <el-form-item prop="username">
@@ -69,7 +68,7 @@
       <br>
       <br>
       <br>
-      <social-sign />
+      <!-- <social-sign /> -->
     </el-dialog>
   </div>
 </template>
@@ -149,6 +148,7 @@ export default {
           this.loading = true
           this.$store.dispatch('user/login', this.loginForm)
             .then(() => {
+              console.log(1, this.redirect || '/');
               this.$router.push({ path: this.redirect || '/' })
               this.loading = false
             })

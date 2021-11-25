@@ -4,7 +4,7 @@ import router, { resetRouter } from '@/router'
 const state = {
   token: getToken(),
   name: '',
-  avatar: '1',
+  avatar: 'https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif',
   introduction: '',
   roles: [1, 2]
 }
@@ -32,6 +32,7 @@ const actions = {
   login({ commit }, userInfo) {
     // const { username, password } = userInfo
     return new Promise((resolve, reject) => {
+      resolve()
     })
   },
 

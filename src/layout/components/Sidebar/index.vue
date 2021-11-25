@@ -1,6 +1,6 @@
 <template>
-  <div :class="{'has-logo':showLogo}">
-    <logo v-if="showLogo" :collapse="isCollapse" />
+  <div class="has-logo">
+    <logo :collapse="isCollapse" />
     <el-scrollbar wrap-class="scrollbar-wrapper">
       <el-menu
         :default-active="$route.path"
@@ -30,9 +30,6 @@ export default {
       'permission_routes',
       'sidebar'
     ]),
-    showLogo() {
-      return this.$store.state.settings.sidebarLogo
-    },
     variables() {
       return variables
     },

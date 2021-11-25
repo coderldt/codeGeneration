@@ -69,7 +69,7 @@ export const constantRoutes = [
     redirect: 'dashboard',
     children: [
       {
-        path: 'dashboard',
+        path: '/dashboard',
         component: () => import('@/views/dashboard/index'),
         name: 'Dashboard',
         meta: { title: 'dashboard', icon: 'dashboard', noCache: true, affix: true }
@@ -84,6 +84,12 @@ export const constantRoutes = [
 */
 export const asyncRoutes = [
   {
+    path: '/codeGeneration',
+    component: () => import('@/views/codeGeneration/index'),
+    name: 'international',
+    meta: { title: 'icons', icon: 'icon', noCache: true }
+  },
+  {
     path: '/icon',
     component: Layout,
     children: [
@@ -95,12 +101,7 @@ export const asyncRoutes = [
       }
     ]
   },
-
-  /** when your routing map is too long, you can split it into small modules **/
   componentsRouter,
-  // chartsRouter,
-  // nestedRouter,
-  // tableRouter,
   {
     path: '/error',
     component: Layout,

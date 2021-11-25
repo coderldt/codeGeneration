@@ -38,7 +38,6 @@ export default {
     }
   },
   mounted() {
-    console.log(this.$el, this.$el.getBoundingClientRect())
     this.height = this.$el.getBoundingClientRect().height
     window.addEventListener('scroll', this.handleScroll)
     window.addEventListener('resize', this.handleReize)

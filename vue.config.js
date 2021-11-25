@@ -52,10 +52,10 @@ module.exports = {
         extended: true
       }))
 
-      const { default: mocks } = require('./mock')
-      for (const mock of mocks) {
-        app[mock.type](mock.url, mock.response)
-      }
+      // const { default: mocks } = require('./mock')
+      // for (const mock of mocks) {
+      //   app[mock.type](mock.url, mock.response)
+      // }
     }
   },
   configureWebpack: {
