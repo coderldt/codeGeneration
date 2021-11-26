@@ -3,7 +3,7 @@
     <div id="msg" class="commonBox" style="margin-top: 0;">
       <div class="title">搜索表格</div>
       <el-row :gutter="20">
-        <el-col :span="12"><Options /></el-col>
+        <el-col :span="12"><Options @onEdit="onEdit" /></el-col>
         <el-col :span="12"><div class="grid-content bg-purple" /></el-col>
       </el-row>
     </div>
@@ -21,24 +21,38 @@
         </div>
       </div>
     </div>
+    <HeaderForm v-model="headerDialog.show"></HeaderForm>
   </div>
 </template>
 
 <script>
 import { HeaderSkeleton, TableSkeleton, PaginationSkeleton } from './skeleton'
-import Options from './children/options.vue'
+import Options from './options.vue'
+import HeaderForm from './popup/header/header.vue'
 export default {
   components: {
     HeaderSkeleton,
     TableSkeleton,
     PaginationSkeleton,
-    Options
+    Options,
+    HeaderForm
   },
   data() {
     return {
+      headerDialog: {
+        show: false
+      }
     }
   },
   computed: {
+  },
+  methods: {
+    onEdit(row) {
+      switch (row.id) {
+        case 'header':
+          this.headerDialog.show = true
+      }
+    }
   }
 }
 </script>

@@ -46,7 +46,7 @@ export default {
   },
   methods: {
     onRowEdit(row) {
-      console.log(row)
+      this.$emit('onEdit', row)
     }
   }
 }
