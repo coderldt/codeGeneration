@@ -17,7 +17,7 @@
     </div>
     <span />
     <span slot="footer" class="dialog-footer">
-      <el-button @click="getDialogVisible = false">取 消</el-button>
+      <el-button @click="active -= 1">上一步</el-button>
       <el-button type="primary" @click="active += 1">下一步</el-button>
     </span>
   </el-dialog>
